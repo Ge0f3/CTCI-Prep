@@ -1,19 +1,25 @@
 import unittest
 
-#O(N) solution
-def isSubstr(s1,s2):
-    return s1.find(s2)>-1
 
-def isRotation(s1,s2): 
+#O(N^2) solution
 
-    s1 = s1+s1
 
-    return isSubstr(s1,s2)
+def rotate(matrix): 
+
+    n = len(matrix[0])
+    for i in range(n):
+        for j in range(i,n):
+            matrix[j][i], matrix[i][j] = matrix[i][j], matrix[j][i]
+
+    for i in range(n):
+        matrix[i].reverse()
    
 
-s1 = 'waterbottle'
-s2 = 'bottle'
-
+matrix = [
+            [1,2,3],
+            [4,5,6],
+            [7,8,9]
+        ]
 class Test(unittest.TestCase):
 
     str1 = [('abcd'), ('s4fad'), ('')]
@@ -31,4 +37,5 @@ class Test(unittest.TestCase):
 
 
 if __name__ == '__main__':
-    print(isRotation(s1,s2))
+    rotate(matrix)
+    print(matrix)

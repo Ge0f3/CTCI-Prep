@@ -1,5 +1,5 @@
 import unittest
-from collections import Counter
+
 
 #O(N) solution
 def compress(string): 
